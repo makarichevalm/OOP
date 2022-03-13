@@ -17,7 +17,7 @@ namespace laba2OOP
                 isEmpty(BankType) ||
                 isEmpty(BankProcent) ||
                 isEmpty(BankCredit)||
-                !(BankAtmNo.Checked || BankAtmYes.Checked);
+                isEmpty(BankDeposits);
         }
 
         private Dictionary<int, Bank> banks = new Dictionary<int, Bank>();
@@ -25,14 +25,11 @@ namespace laba2OOP
         {
             InitializeComponent();
         }
-
         private void button_change_Click(object sender, EventArgs e)
         {
             uint deposits;
             uint period = 1;
             double procent = 0;
-
-
             var result =
                 uint.TryParse(BankDeposits.Text, out deposits) &&
                 double.TryParse(BankProcent.Text, out procent) &&
@@ -44,20 +41,8 @@ namespace laba2OOP
                 MessageBox.Show("Некорректные данные");
                 return;
             }
-
-            
             int selected = comboBox1.SelectedIndex;
             if (selected == -1) return;
-
-            /*foreach (var pair in banks)
-            {
-                if (pair.Value.Title == BankTitle.Text)
-                {
-                    MessageBox.Show("Банк с таким названием уже существует!");
-                    return;
-                }
-            }*/
-
             banks[selected].Title = BankTitle.Text;
             banks[selected].Type = BankType.Text;
             banks[selected].NumberDeposits = deposits;
@@ -67,7 +52,6 @@ namespace laba2OOP
             banks[selected].Atm = BankAtmYes.Checked;
             label12.Text = banks[selected].ToString();
             ChangeComboBox1();
-
         }
 
         private void button_show_Click(object sender, EventArgs e)
@@ -76,7 +60,6 @@ namespace laba2OOP
             uint deposits;
             uint period = 1;
             double procent = 0;
-
 
             var result =
                 uint.TryParse(BankDeposits.Text, out deposits) &&
@@ -93,11 +76,8 @@ namespace laba2OOP
             BankCredit.Text = banks[selected].CreditPeriod.ToString();
             BankFilNo.Checked = banks[selected].Filials;
             BankAtmYes.Checked = banks[selected].Atm;
-            //BankAtmNo.Checked = banks[selected].Atm;
             label12.Text = banks[selected].ToString();
         }
-
-
         private void button_add_Click_1(object sender, EventArgs e)
         {
             if (isEmpty())
@@ -110,7 +90,6 @@ namespace laba2OOP
             uint periods = 1;
             double procents = 0;
 
-
             var result =
                 uint.TryParse(BankDeposits.Text, out deposits) &&
                 double.TryParse(BankProcent.Text, out procents) &&
@@ -122,8 +101,6 @@ namespace laba2OOP
                 MessageBox.Show("Некорректные данные");
                 return;
             }
-
-            
 
             string title = BankTitle.Text;
             string type = BankType.Text;
@@ -141,15 +118,10 @@ namespace laba2OOP
                     return;
                 }
             }
-            
             banks.Add(Bank.QuantityBanks, new Bank(title, deposit, procent, type, filials, atm, period));
             ChangeComboBox1();
             label9.Text = "Добавлено банков: " + Bank.QuantityBanks;
-
-            
         }
-
-
         private void ChangeComboBox1()
         {
             if (banks.Count == 0)
@@ -164,49 +136,12 @@ namespace laba2OOP
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e){}
+        private void label3_Click(object sender, EventArgs e){}
+        private void label4_Click(object sender, EventArgs e){}
+        private void textBox2_TextChanged(object sender, EventArgs e){}
+        private void label8_Click(object sender, EventArgs e){}
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e){}
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int selected = comboBox1.SelectedIndex;
-            label2.Text = banks[selected].ToString();
-        }
-
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BankAtmNo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -58,11 +58,6 @@ namespace laba2OOP
                 $"Наличие банкоматов: {_Atm}\n" +
                 $"Наличие филиалов: {_Filials}\n";
         }
-        public void ShowName()
-        {
-            Console.WriteLine("Library name: " + Title);
-        }
-
     }
 }
 

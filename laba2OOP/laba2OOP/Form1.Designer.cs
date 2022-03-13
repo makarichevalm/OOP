@@ -34,8 +34,6 @@ namespace laba2OOP
             this.Display = new System.Windows.Forms.Label();
             this.button_show = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.BankAtmNo = new System.Windows.Forms.RadioButton();
-            this.BankAtmYes = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BankProcent = new System.Windows.Forms.TextBox();
@@ -57,10 +55,9 @@ namespace laba2OOP
             this.BankFilNo = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.BankAtmYes = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Display
@@ -92,41 +89,12 @@ namespace laba2OOP
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(40, 315);
+            this.label7.Location = new System.Drawing.Point(40, 346);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(260, 29);
             this.label7.TabIndex = 43;
             this.label7.Text = "Наличие банкоматов";
-            // 
-            // BankAtmNo
-            // 
-            this.BankAtmNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.BankAtmNo.AutoSize = true;
-            this.BankAtmNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BankAtmNo.Location = new System.Drawing.Point(140, 14);
-            this.BankAtmNo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BankAtmNo.Name = "BankAtmNo";
-            this.BankAtmNo.Size = new System.Drawing.Size(81, 33);
-            this.BankAtmNo.TabIndex = 42;
-            this.BankAtmNo.TabStop = true;
-            this.BankAtmNo.Text = "Нет";
-            this.BankAtmNo.UseVisualStyleBackColor = true;
-            this.BankAtmNo.CheckedChanged += new System.EventHandler(this.BankAtmNo_CheckedChanged);
-            // 
-            // BankAtmYes
-            // 
-            this.BankAtmYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.BankAtmYes.AutoSize = true;
-            this.BankAtmYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.BankAtmYes.Location = new System.Drawing.Point(24, 14);
-            this.BankAtmYes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.BankAtmYes.Name = "BankAtmYes";
-            this.BankAtmYes.Size = new System.Drawing.Size(91, 33);
-            this.BankAtmYes.TabIndex = 41;
-            this.BankAtmYes.TabStop = true;
-            this.BankAtmYes.Text = "Есть";
-            this.BankAtmYes.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -358,14 +326,17 @@ namespace laba2OOP
             this.panel1.Size = new System.Drawing.Size(272, 225);
             this.panel1.TabIndex = 70;
             // 
-            // panel2
+            // BankAtmYes
             // 
-            this.panel2.Controls.Add(this.BankAtmNo);
-            this.panel2.Controls.Add(this.BankAtmYes);
-            this.panel2.Location = new System.Drawing.Point(52, 359);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(231, 54);
-            this.panel2.TabIndex = 71;
+            this.BankAtmYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.BankAtmYes.AutoSize = true;
+            this.BankAtmYes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BankAtmYes.Location = new System.Drawing.Point(340, 346);
+            this.BankAtmYes.Name = "BankAtmYes";
+            this.BankAtmYes.Size = new System.Drawing.Size(92, 33);
+            this.BankAtmYes.TabIndex = 71;
+            this.BankAtmYes.Text = "Есть";
+            this.BankAtmYes.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -375,7 +346,7 @@ namespace laba2OOP
             this.BackColor = System.Drawing.Color.LightCyan;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1015, 637);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.BankAtmYes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BankFilNo);
             this.Controls.Add(this.label9);
@@ -403,8 +374,6 @@ namespace laba2OOP
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,8 +384,6 @@ namespace laba2OOP
         private System.Windows.Forms.Label Display;
         private System.Windows.Forms.Button button_show;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton BankAtmNo;
-        private System.Windows.Forms.RadioButton BankAtmYes;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox BankProcent;
@@ -438,7 +405,7 @@ namespace laba2OOP
         private System.Windows.Forms.CheckBox BankFilNo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.CheckBox BankAtmYes;
     }
 }
 
