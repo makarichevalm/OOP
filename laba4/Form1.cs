@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-
 
 namespace laba4
 {
@@ -20,7 +14,6 @@ namespace laba4
         public Form1()
         {
             InitializeComponent();
-
             // Заполнение данных
            organizations.Add(organizations.Count, new Organization("Пенза", 345, 89042661675, 
                "OОО Ремстрой", 123761789212,  45,  true,  false));
@@ -41,10 +34,7 @@ namespace laba4
             individuals.Add(individuals.Count, new Individuals("Казань", 678, 89872251002,
                  "Евгения", "Шишкина", "Романовна", 481376, 4345, true));
             ChangeComboBox2();
-
         }
-
-     
         private void ChangeComboBox1()
         {
             if (organizations.Count == 0)
@@ -58,7 +48,6 @@ namespace laba4
                 comboBox1.SelectedIndex = comboBox1.Items.IndexOf(selected);
             }
         }
-
         private void ChangeComboBox2()
         {
             if (individuals.Count == 0)
@@ -72,7 +61,6 @@ namespace laba4
                 comboBox1.SelectedIndex = comboBox2.Items.IndexOf(selected2);
             }
         }
-
         private bool isEmpty(TextBox item)
         {
             return string.IsNullOrEmpty(item.Text);
@@ -87,7 +75,6 @@ namespace laba4
                 isEmpty(title) ||
                 isEmpty(countWriters);
         }
-
         private bool isEmpty2()
         {
             return
@@ -96,35 +83,26 @@ namespace laba4
                 isEmpty(passportNumber) ||
                 isEmpty(passportSeria);
         }
-
         private void Change1_Click(object sender, EventArgs e)
         {
-
             if (isEmpty1())
             {
                 MessageBox.Show("Выберите объект класса!");
                 return;
             }
-
             ulong phoneNumbers = Convert.ToUInt64(Math.Pow(10, 10));
             ulong phone = Convert.ToUInt64(Math.Pow(10, 10));
             ulong inns = Convert.ToUInt64(Math.Pow(10, 11));
             ulong INN = Convert.ToUInt64(Math.Pow(10, 11));
             uint countWriter = 0;
-
-
             var result =
                 ulong.TryParse(phoneNumber1.Text, out phoneNumbers) &&
                 ulong.TryParse(inn.Text, out inns) &&
                 uint.TryParse(countWriters.Text, out countWriter) &&
                 countWriter > 0 && inns > INN && phoneNumbers > phone;
-
-
             phoneNumber1.BackColor = Color.White;
             inn.BackColor = Color.White;
             countWriters.BackColor = Color.White;
-
-
             if (!result)
             {
                 MessageBox.Show("Некорректные данные");
@@ -144,14 +122,12 @@ namespace laba4
                 }
                 return;
             }
-
             int selected = comboBox1.SelectedIndex;
             if (selected == -1)
             {
                 MessageBox.Show("Выберите объект для изменения!");
                 return;
             }
-
             organizations[selected].Title = title.Text;
             organizations[selected].Adress = adress1.Text;
             organizations[selected].BankAccount = Convert.ToUInt64(bankAccount1.Text);
@@ -163,7 +139,6 @@ namespace laba4
             ChangeComboBox1();
             show1(sender, e);
         }
-
         private void show1(object sender, EventArgs e)
         {
             int selected = comboBox1.SelectedIndex;
@@ -176,14 +151,11 @@ namespace laba4
             countWriters.Text = organizations[selected].СountWriters.ToString();
             kppYes.Checked = organizations[selected].Kpp;
             filialsYes.Checked = organizations[selected].Filials;
-
         }
-
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             show1(sender, e);
         }
-
         private void Change2_Click(object sender, EventArgs e)
         {
             if (isEmpty2())
@@ -191,27 +163,20 @@ namespace laba4
                 MessageBox.Show("Выберите объект класса!");
                 return;
             }
-
             ulong phoneNumbers = Convert.ToUInt64(Math.Pow(10, 10));
             ulong phone = Convert.ToUInt64(Math.Pow(10, 10));
             uint passportnum = Convert.ToUInt32(Math.Pow(10, 5));
             uint passportnums = Convert.ToUInt32(Math.Pow(10, 5));
             uint passportser = Convert.ToUInt32(Math.Pow(10, 3));
             uint passportsers = Convert.ToUInt32(Math.Pow(10, 3));
-
-
             var result =
                 ulong.TryParse(phoneNumber2.Text, out phoneNumbers) &&
                 uint.TryParse(passportNumber.Text, out passportnum) &&
                 uint.TryParse(passportSeria.Text, out passportser) &&
                 passportser >= passportsers && passportnum >= passportnums && phoneNumbers > phone;
-
-
             phoneNumber2.BackColor = Color.White;
             passportSeria.BackColor = Color.White;
             passportNumber.BackColor = Color.White;
-
-
             if (!result)
             {
                 MessageBox.Show("Некорректные данные");
@@ -219,19 +184,16 @@ namespace laba4
                 {
                     phoneNumber2.BackColor = Color.FromArgb(250, 128, 114);
                 }
-
                 if (!uint.TryParse(inn.Text, out passportnum) || (passportnum <= passportnums))
                 {
                     passportNumber.BackColor = Color.FromArgb(250, 128, 114);
                 }
-
                 if (!uint.TryParse(countWriters.Text, out passportser) || (passportser < passportsers))
                 {
                     passportSeria.BackColor = Color.FromArgb(250, 128, 114);
                 }
                 return;
             }
-
             int selected2 = comboBox2.SelectedIndex;
             if (selected2 == -1) return;
             individuals[selected2].Adress = adress2.Text;
@@ -246,10 +208,8 @@ namespace laba4
             ChangeComboBox2();
             show2(sender, e);
         }
-
         private void show2(object sender, EventArgs e)
         {
-
             int selected2 = comboBox2.SelectedIndex;
             if (selected2 == -1) return;
             adress2.Text = individuals[selected2].Adress;
@@ -262,7 +222,6 @@ namespace laba4
             passportSeria.Text = individuals[selected2].PassportSeria.ToString();
             biometricYes.Checked = individuals[selected2].BiometricData;
         }
-
         private void Form1_Load_1(object sender, EventArgs e)
         {
             Type typeCl = typeof(Clients);
@@ -341,34 +300,10 @@ namespace laba4
         {
             show2(sender, e);
         }
-
-
-        private void tree_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        private void passportSeria_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-       
+        private void tree_Click(object sender, EventArgs e){}
+        private void panel1_Paint(object sender, PaintEventArgs e){}
+        private void label1_Click(object sender, EventArgs e){}
+        private void label2_Click(object sender, EventArgs e){}
+        private void passportSeria_TextChanged(object sender, EventArgs e){}
     }
 }
