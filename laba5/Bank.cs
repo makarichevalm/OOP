@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace laba5
 {
-
-
     /// <summary>
     /// класс Банк
     /// </summary>
@@ -21,7 +18,7 @@ namespace laba5
         public uint CreditPeriod { get; set; }// срок выдаваемого кредита
         public int NumberOfClients = 0;//число клиентов банка
         public static int QuantityBanks = 0;
-        public List<Clients> clients = new List<Clients>();
+        public List<Clients> clients = new List<Clients>(); //список клиентов банков
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
@@ -57,14 +54,12 @@ namespace laba5
             CreditPeriod = creditPeriod;
             QuantityBanks++;
         }
-
         /// <summary>
         /// Переопределение метода toString()
         /// </summary>
         /// <returns>Информация о банке</returns>
         public override string ToString()
         {
-
             var _Atm = Atm ? "Есть" : "Нет";
             var _Filials = Filials ? "Есть" : "Нет";
             return $"Наименование банка: {Title}\n" +
@@ -75,7 +70,12 @@ namespace laba5
                 $"Наличие банкоматов: {_Atm}\n" +
                 $"Наличие филиалов: {_Filials}\n";
         }
-
+        /// <summary>
+        /// Перегрузка оператора +
+        /// </summary>
+        /// <param name="bank">объект класса Bank</param>
+        /// <param name="client">объект класса Clients</param>
+        /// <returns></returns>
         public static Bank operator +(Bank bank, Clients client)
         {
             if (!bank.clients.Any(i => i.BankAccount == client.BankAccount
@@ -91,7 +91,12 @@ namespace laba5
             }
             return bank;
         }
-
+        /// <summary>
+        /// Перегрузка оператора -
+        /// </summary>
+        /// <param name="bank">объект класса Bank</param>
+        /// <param name="client">объект класса Clients</param>
+        /// <returns></returns>
         public static Bank operator -(Bank bank, Clients client)
         {
             bank.clients.Remove(client);

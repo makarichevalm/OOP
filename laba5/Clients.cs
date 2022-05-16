@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace laba5
@@ -27,6 +23,18 @@ namespace laba5
         public uint CountWriters { get; set; }// кол-во лиц с правом подписи
         public bool Kpp { get; set; }//наличие кода причины постановки на налоговый учет
         public bool Filials { get; set; }//наличие филиалов
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="adress"></param>
+        /// <param name="bankAccount"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="title"></param>
+        /// <param name="inn"></param>
+        /// <param name="countWriters"></param>
+        /// <param name="kpp"></param>
+        /// <param name="filials"></param>
         public Organization(string type, string adress, ulong bankAccount, ulong phoneNumber,
             string title, ulong inn, uint countWriters, bool kpp, bool filials)
         {
@@ -40,6 +48,13 @@ namespace laba5
             Kpp = kpp;
             Filials = filials;
         }
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="adress"></param>
+        /// <param name="bankAccount"></param>
+        /// <param name="phoneNumber"></param>
         public Organization(string type, string adress, ulong bankAccount, ulong phoneNumber)
         {
             Type = type;
@@ -52,6 +67,9 @@ namespace laba5
             Kpp = true;
             Filials = false;
         }
+        /// <summary>
+        /// Метод, выводящий информацию об организации
+        /// </summary>
         public void GetInfo()
         {
             var _filials = Filials ? "Есть" : "Нет";
@@ -60,6 +78,10 @@ namespace laba5
                 $"Связаться с директором компании можно по номеру телефона {PhoneNumber}.\n" +
                 $"У этой компании {_filials} филиалы(-ов).");
         }
+        /// <summary>
+        /// Переопределение метода ToString()
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             var _kpp = Kpp ? "Есть" : "Нет";
@@ -87,6 +109,19 @@ namespace laba5
         public uint PassportNumber { get; set; } //номер паспорта (6)
         public uint PassportSeria { get; set; } //серия паспорта (4)
         public bool BiometricData { get; set; }//наличие биометрических данных
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="adress"></param>
+        /// <param name="bankAccount"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="name"></param>
+        /// <param name="surname"></param>
+        /// <param name="middleName"></param>
+        /// <param name="passportNumber"></param>
+        /// <param name="passportSeria"></param>
+        /// <param name="biometricData"></param>
         public Individuals(string type, string adress, ulong bankAccount, ulong phoneNumber,
             string name, string surname, string middleName, uint passportNumber, uint passportSeria, bool biometricData)
         {
@@ -101,6 +136,13 @@ namespace laba5
             PassportSeria = passportSeria;
             BiometricData = biometricData;
         }
+        /// <summary>
+        /// Конструктор с параметрами
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="adress"></param>
+        /// <param name="bankAccount"></param>
+        /// <param name="phoneNumber"></param>
         public Individuals(string type, string adress, ulong bankAccount, ulong phoneNumber)
         {
             Type = type;
@@ -114,6 +156,9 @@ namespace laba5
             PassportSeria = 5618;
             BiometricData = false;
         }
+        /// <summary>
+        /// Метод, выводящий информацию о физическом лице
+        /// </summary>
         public void GetInfo()
         {
             var _biometricData = BiometricData ? "Есть" : "Нет";
@@ -122,6 +167,10 @@ namespace laba5
                 $"Связаться с этим человеком можно по номеру телефона {PhoneNumber}.\n" +
                 $"У данного физического лица {_biometricData} биометрические(-их) данные(-ых).");
         }
+        /// <summary>
+        /// Переопределение метода ToString()
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             var _biometricData = BiometricData ? "Есть" : "Нет";

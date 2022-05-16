@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace laba5
@@ -151,13 +145,11 @@ namespace laba5
                 return;
             }
         }
-
         private void butStartTime_Click(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             TimerText.Text = "Объекты генерируются";
         }
-
         private void butFinishTime_Click(object sender, EventArgs e)
         {         
             timer1.Enabled = false;
@@ -190,7 +182,6 @@ namespace laba5
             }
             ShowClient(bank);
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             AddRandomCl();
